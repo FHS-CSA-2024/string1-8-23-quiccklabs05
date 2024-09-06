@@ -1,32 +1,3 @@
-# Compiled class file
-*.class
-
-# Log file
-*.log
-
-# BlueJ files
-*.ctxt
-*.bluej
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
-
-
-
-
 package src.main.java;
 
 public class String1
@@ -116,7 +87,7 @@ public class String1
      * extraEnd("Hi") → "HiHiHi"
      */
     public String extraEnd(String str) {
-        return str.substring(3,5)+str.substring(3,5)+str.substring(3,5);
+        return str.substring(str.length() - 2, str.length())+str.substring(str.length() - 2, str.length())+str.substring(str.length() - 2, str.length());
     }
 
     /*
@@ -166,10 +137,10 @@ public class String1
     public String comboString(String a, String b) {
         if (a.length()>b.length()){
             return b+a+b;
-        } else{
+        }
+        else{
             return a+b+a;
         }
-        };
     }
 
     /*
@@ -179,10 +150,10 @@ public class String1
      * middleThree("and") → "and"
      * middleThree("solving") → "lvi"
      */
-    
+
     public String middleThree(String str) {
         if(str.length()>3){
-            return str.substring(1,str.length()-1);
+            return str.substring(str.length()/3,str.length()-str.length()/3);
         }else{
             return str;
         }
@@ -195,7 +166,7 @@ public class String1
      * extraFront("ab") → "ababab"
      * extraFront("H") → "HHH"
      */
-    
+
     public String extraFront(String str) {
         if (str.length()>2){
             return str.substring(0,2)+str.substring(0,2)+str.substring(0,2);
@@ -211,7 +182,7 @@ public class String1
      * left2("java") → "vaja"
      * left2("Hi") → "Hi"
      */
-    
+
     public String left2(String str) {
         if(str.length()>2){
             return str.substring(2,str.length())+str.substring(0,2);
@@ -244,14 +215,17 @@ public class String1
      * conCat("dog", "cat") → "dogcat"
      * conCat("abc", "") → "abc"
      */
-    
+
     public String conCat(String a, String b) {
+        //if b length >1
         if ((a.substring(2).equals(b.substring(0,1)))){
             return a.substring(0,a.length()-1)+b;
         }
         else{
             return a+b;
         }
+        
+        //else (b!>= 1)
     }
 
     /*
@@ -264,12 +238,12 @@ public class String1
      *minCat("Hello", "java") → "ellojava"
      *minCat("java", "Hello") → "javaello"
      */
-    
+
     public String minCat(String a, String b) {
         if(a.length()>b.length()){
-            return a.substring(a.length()-b.length(),a.length())+b;
+            return a.substring(a.length()-b.length())+b;
         }else{
-            return b.substring(b.length()-a.length(),b.length())+a;
+            return a+b.substring(b.length()-a.length());
         }
     }
 
@@ -280,12 +254,11 @@ public class String1
      * withoutX("xHi") → "Hi"
      * withoutX("Hxix") → "Hxi"
      */
-    
+
     public String withoutX(String str) {
         if (str.startsWith("x")){
             str = str.substring(1, str.length());
-        }
-        if (str.endsWith("x")) {
+        }else if (str.endsWith("x")) {
             str = str.substring(0, str.length() -1);
         }
         return str;
@@ -303,12 +276,12 @@ public class String1
     public String deFront(String str) {
         if (str.startsWith("a") && str.substring(1).equals("b")){
             str = str.substring(2,str.length());
-        }
-        if (str.startsWith("a")){
-            str = str.substring(1,str.length());
+        }else if (str.startsWith("a")){
+            str = str.substring(0,str.length());
         }
         else{
             str = str.substring(2,str.length());
         }
         return str;
     }
+}
