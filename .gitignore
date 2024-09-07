@@ -218,13 +218,13 @@ public class String1
 
     public String conCat(String a, String b) {
         //if b length >1
-        if ((a.substring(2).equals(b.substring(0,1)))){
-            return a.substring(0,a.length()-1)+b;
+        int end=a.length()-1;
+        if ((a.substring(2).equals(b.substring(0)))){
+            return a.substring(0,end)+b;
         }
         else{
             return a+b;
         }
-        
         //else (b!>= 1)
     }
 
@@ -274,14 +274,22 @@ public class String1
      * deFront("away") → "aay"
      */
     public String deFront(String str) {
-        if (str.startsWith("a") && str.substring(1).equals("b")){
-            str = str.substring(2,str.length());
-        }else if (str.startsWith("a")){
-            str = str.substring(0,str.length());
+        int b = str.length();
+        if (b>2){
+            if (str.substring(0,1).equals("a") && str.substring(1,2).equals("b")){
+                String p = str.substring(0);
+                return p;                
+            }
+            else if (str.substring(0,1).equals("a")){
+                String o = str.substring(0,1) + str.substring(2);
+                return o;
+            }else if (str.substring(2,3).equals("b")){
+                String okay = str.substring(2);
+            }else{
+                String h = str.substring(2);
+                return h;
+            }
         }
-        else{
-            str = str.substring(2,str.length());
-        }
-        return str;
+        return unimplemented;
     }
 }
