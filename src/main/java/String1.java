@@ -217,6 +217,7 @@ public class String1
      */
 
     public String conCat(String a, String b) {
+        //You were right! check to see if b is empty!!!!
         //if b length >1
         int end=a.length()-1;
         if ((a.substring(2).equals(b.substring(0)))){
@@ -256,6 +257,7 @@ public class String1
      */
 
     public String withoutX(String str) {
+    //this should check for BOTH front and end "x"'s
         if (str.startsWith("x")){
             str = str.substring(1, str.length());
         }else if (str.endsWith("x")) {
